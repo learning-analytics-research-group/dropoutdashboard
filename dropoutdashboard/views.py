@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .utils2 import aux 
+from .utils import logistic_regression 
 
 def index(request):
-    dados = aux.load()
+    dados = logistic_regression.load()
     return render(request, 'dropoutdashboard/index.html', {'dados': dados })

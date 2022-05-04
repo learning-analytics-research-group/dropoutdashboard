@@ -5,15 +5,14 @@
 Libraries instalation:
 
     python -m venv venv
-    source venv/bin/activate
+    source venv/Scripts/activate (linux: source venv/bin/activate)
     pip install -r requirements.txt
 
 Up django:
 
     python manage.py runserver
 
-
 Windows
 
     Instalar: git, python
-    git config --global core.longpaths true
+
