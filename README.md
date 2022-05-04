@@ -11,3 +11,9 @@ Libraries instalation:
 Up django:
 
     python manage.py runserver
+
+
+Windows
+
+    Instalar: git, python
+    git config --global core.longpaths true
