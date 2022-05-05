@@ -21,6 +21,13 @@ from . import views
 urlpatterns = [
 
     path('', views.index, name='index'),
+    
+    path('participants', views.participants, name='participants'),
 
-    path('admin/', admin.site.urls),
+    path('sobre', views.sobre, name='sobre'),
+
+    path('analyses/nitra', views.nitra, name='nitra'),
+
+
+    #path('admin/', admin.site.urls),
 ]

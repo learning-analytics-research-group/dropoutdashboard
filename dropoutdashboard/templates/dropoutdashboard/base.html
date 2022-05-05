@@ -54,14 +54,14 @@
         <ul class="nav flex-column">
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="nav-link active" aria-current="page" href="/sobre">
               <span data-feather="home"></span>
               Sobre
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/participants">
               <span data-feather="file"></span>
               Participantes
             </a>
@@ -77,7 +77,7 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/analyses/nitra">
               <span data-feather="file-text"></span>
               Constantine the Philosopher University in Nitra
             </a>
@@ -109,12 +109,11 @@
         </div>
       </div>
 
-      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+      {%block content %}
+      
+      {% endblock %}  
 
-      <h2>Section title</h2>
-      <div class="table-responsive">
-
-      </div>
+      
     </main>
   </div>
 </div>
