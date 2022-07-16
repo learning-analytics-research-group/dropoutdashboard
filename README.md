@@ -15,4 +15,8 @@ Up django:
 Windows
 
     Instalar: git, python
+    
+Outros Dashboards:
+
+    - https://github.com/FranciscoGutierrez/LADA
 
