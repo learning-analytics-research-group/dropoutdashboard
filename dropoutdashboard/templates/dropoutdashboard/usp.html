@@ -1,0 +1,24 @@
+{% extends 'dropoutdashboard/base.html' %}
+
+{%block content %}
+
+Curso de Letras {{min_year}}-{{max_year}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      {{num_alunos}} alunos
+    </div>
+    <div class="col-sm">
+      {{evadidos}} alunos evadidos
+    </div>
+    <div class="col-sm">
+      Índice de evasão {{indice_evasao}} 
+    </div>
+    <div class="col-sm">
+      Idade média: {{idade_media}}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

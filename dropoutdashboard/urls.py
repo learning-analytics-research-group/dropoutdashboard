@@ -28,6 +28,8 @@ urlpatterns = [
 
     path('analyses/nitra', views.nitra, name='nitra'),
 
+    path('analyses/usp', views.usp, name='usp'),
+
 
     #path('admin/', admin.site.urls),
 ]
