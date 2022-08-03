@@ -44,12 +44,17 @@ def usp(request):
     evadidos           = uspML.evasao()
     indice_evasao      = (evadidos / num_alunos)
     idade_media        = uspML.idade_media()
+    fig1               = uspML.evasao_failure1ano_pie(1)
+    fig2               = uspML.evasao_failure1ano_bar()
 
     return render(request, 'dropoutdashboard/usp.html', {'min_year'     : min_year,
                                                         'max_year'      : max_year,
                                                         'num_alunos'    : f'{num_alunos:,}'.format(),
                                                         'evadidos'      : f'{evadidos:,}'.format(),
                                                         'indice_evasao' : f'{(indice_evasao):.2%}'.format(),
-                                                        'idade_media'   : f'{idade_media:.2f}'.format(),})
+                                                        'idade_media'   : f'{idade_media:.2f}'.format(),
+                                                        'fig1'          : fig1,
+                                                        'fig2'          : fig2,
+                                                        })
 
                                                                        
