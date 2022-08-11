@@ -46,11 +46,5 @@ lr1.fit(X_train_res, y_train_res)
 yhat = lr1.predict(X_test)
 yhat_prob = lr1.predict_proba(X_test)
 
-def evaluate_reglog():
-    errors, mape, accuracy = funcs.evaluate(lr1, X_test, y_test)
-
-    return (errors, mape, accuracy)
-
-
 errors, mape, accuracy = funcs.evaluate(lr1, X_test, y_test)
 
