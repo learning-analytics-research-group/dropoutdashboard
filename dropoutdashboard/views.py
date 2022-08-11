@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import urllib
 
-from .utils import logistic_regression, nitraML, uspML
+from .utils import logistic_regression, nitraML, uspML, usp_logreg
 
 def index(request):
     dados = logistic_regression.load()
@@ -46,7 +46,9 @@ def usp(request):
     idade_media        = uspML.idade_media()
     fig1               = uspML.evasao_failure1ano_pie(1)
     fig2               = uspML.evasao_failure1ano_bar()
-    fig3               = uspML.idade_histograma() 
+    fig3               = uspML.idade_histograma()
+    accuracy           = usp_logreg.accuracy
+
 
     return render(request, 'dropoutdashboard/usp.html', {# 'min_year'     : min_year,
                                                         #'max_year'      : max_year,
@@ -57,6 +59,8 @@ def usp(request):
                                                         'fig1'          : fig1,
                                                         'fig2'          : fig2,
                                                         'fig3'          : fig3,
+                                                        'accuracy_log'  : 'Accuracy = {:0.2f}%.'.format(accuracy),
+                                                        
                                                         })
 
                                                                        

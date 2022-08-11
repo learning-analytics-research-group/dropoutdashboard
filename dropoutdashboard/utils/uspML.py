@@ -12,6 +12,8 @@ from datetime import datetime, date
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 from django.http import HttpResponse
 
+from . import funcs
+
 
 #carregando dados
 dados_usp = pd.read_csv('data/letras_usp_course_completion.csv', sep=',')
@@ -26,15 +28,6 @@ df_final = pd.read_csv('data/teste.csv', sep=',')
 #     return (min_year, max_year)
 
 
-def gerar_imagem(fig):
-
-    buf = io.BytesIO()
-    fig.savefig(buf,format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri =  urllib.parse.quote(string)
-
-    return uri
 
 def num_alunos():
     #função que conta numero e alunos não unicos
@@ -58,20 +51,23 @@ def evasao_failure1ano_pie(i):
     plt.title(f'Taxa de alunos que evadem curso ao reprovarem = {i+1}')
    
 
-    uri = gerar_imagem(fig)
+    uri = funcs.gerar_imagem(fig)
 
     return uri
 
 
 def evasao_failure1ano_bar():
 
-    # df_final = pd.DataFrame()
-    # for i in range(5):
-    #     df = pd.DataFrame(dados_usp[dados_usp.failures_in_first_year == i+1]['evadido'].value_counts())
-    #     df['pct'] = df['evadido'] / df['evadido'].sum()
+    fig = plt.figure(figsize=(9,5))
+
+    df_final = pd.DataFrame()
+    for i in range(5):
+        df = pd.DataFrame(dados_usp[dados_usp.failures_in_first_year == i+1]['evadido'].value_counts())
+        df['pct'] = df['evadido'] / df['evadido'].sum()
         
-    #     df_final[f'{i+1}'] = df[df.index=='sim']['pct']
-    # df_final.rename({'sim' : 'aluno que evadiram'}, inplace=True)
+        #df_final[f'{i+1}'] =
+        df[df.index=='sim']['pct'].plot(kind='barh')
+    #df_final.rename({'sim' : 'aluno que evadiram'}, inplace=True)
     
     fig = plt.figure(figsize=(9,5))
     #df_final.T.sort_index(ascending=False).plot(kind='barh')
@@ -79,12 +75,13 @@ def evasao_failure1ano_bar():
         # plt.text(value, index,
         #         str(f'{value:.2%}'))
         
-    df_final.plot()
+    #df_final.plot()
+    #dados_usp[dados_usp.failures_in_first_year == 1]['evadido'].value_counts().plot(kind='pie', autopct='%1.1f%%')
     # plt.title('Porcentagem de alunos que evadiram por reprovação no primeiro ano')
 
    
 
-    uri = gerar_imagem(fig)
+    uri = funcs.gerar_imagem(fig)
 
 
 
@@ -96,7 +93,7 @@ def idade_histograma():
     dados_usp['idade_no_ingresso'].hist(bins=30, grid=False)
     plt.title(f'Histograma idade dos alunos no ingresso')
 
-    uri = gerar_imagem(fig)
+    uri = funcs.gerar_imagem(fig)
 
     return uri
 
