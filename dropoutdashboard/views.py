@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import urllib
 
-from .utils import logistic_regression, nitraML, uspML, usp_logreg, usp_dectree, usp_rndforest, usp_NB, usp_SVM
+from .utils import logistic_regression, nitraML, uspML, usp_logreg, usp_dectree, usp_rndforest, usp_NB, usp_SVM #, usp_NN
 
 def index(request):
     dados = logistic_regression.load()
@@ -52,6 +52,7 @@ def usp(request):
     accuracy_rndforest = usp_rndforest.accuracy
     accuracy_NB        = usp_NB.accuracy
     accuracy_SVM       = usp_SVM.accuracy
+    accuracy_NN        = usp_NN.accuracy
 
     return render(request, 'dropoutdashboard/usp.html', {# 'min_year'     : min_year,
                                                         #'max_year'      : max_year,
@@ -67,6 +68,7 @@ def usp(request):
                                                         'accuracy_rndforest'  : 'Accuracy Random Forest = {:0.2f}%.'.format(accuracy_rndforest),
                                                         'accuracy_NB'  : 'Accuracy Naive Bayes= {:0.2f}%.'.format(accuracy_NB),
                                                         'accuracy_SVM'  : 'Accuracy Support Vector Machine= {:0.2f}%.'.format(accuracy_SVM),
+                                                        'accuracy_NN'  : 'Accuracy Neural Network = {:0.2f}%.'.format(accuracy_NN),
 
                                                         
                                                         })
