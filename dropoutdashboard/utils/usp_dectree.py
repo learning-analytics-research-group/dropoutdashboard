@@ -1,7 +1,6 @@
 # Importing packages
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
 from collections import Counter
 from imblearn.over_sampling import SMOTE
 from numpy import where
@@ -43,4 +42,4 @@ clf = clf.fit(X_train,y_train)
 yhat = clf.predict(X_test)
 yhat_prob = clf.predict_proba(X_test)
 
-errors, mape, accuracy = funcs.evaluate(lr1, X_test, y_test)
+errors, mape, accuracy = funcs.evaluate(clf, X_test, y_test)

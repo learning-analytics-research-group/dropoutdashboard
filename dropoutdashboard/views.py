@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import urllib
 
-from .utils import logistic_regression, nitraML, uspML, usp_logreg
+from .utils import logistic_regression, nitraML, uspML, usp_logreg, usp_dectree, usp_rndforest, usp_NB, usp_SVM
 
 def index(request):
     dados = logistic_regression.load()
@@ -47,8 +47,11 @@ def usp(request):
     fig1               = uspML.evasao_failure1ano_pie(1)
     fig2               = uspML.evasao_failure1ano_bar()
     fig3               = uspML.idade_histograma()
-    accuracy           = usp_logreg.accuracy
-
+    accuracy_log       = usp_logreg.accuracy
+    accuracy_dectree   = usp_dectree.accuracy
+    accuracy_rndforest = usp_rndforest.accuracy
+    accuracy_NB        = usp_NB.accuracy
+    accuracy_SVM       = usp_SVM.accuracy
 
     return render(request, 'dropoutdashboard/usp.html', {# 'min_year'     : min_year,
                                                         #'max_year'      : max_year,
@@ -59,7 +62,12 @@ def usp(request):
                                                         'fig1'          : fig1,
                                                         'fig2'          : fig2,
                                                         'fig3'          : fig3,
-                                                        'accuracy_log'  : 'Accuracy = {:0.2f}%.'.format(accuracy),
+                                                        'accuracy_log'  : 'Accuracy Logistic Regression= {:0.2f}%.'.format(accuracy_log),
+                                                        'accuracy_dectree'  : 'Accuracy Decision Tree = {:0.2f}%.'.format(accuracy_dectree),
+                                                        'accuracy_rndforest'  : 'Accuracy Random Forest = {:0.2f}%.'.format(accuracy_rndforest),
+                                                        'accuracy_NB'  : 'Accuracy Naive Bayes= {:0.2f}%.'.format(accuracy_NB),
+                                                        'accuracy_SVM'  : 'Accuracy Support Vector Machine= {:0.2f}%.'.format(accuracy_SVM),
+
                                                         
                                                         })
 
