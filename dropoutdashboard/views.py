@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import urllib
 
-from .utils import logistic_regression, nitraML, uspML, usp_logreg, usp_dectree, usp_rndforest, usp_NB, usp_SVM #, usp_NN
+from .utils import logistic_regression, nitraML, uspML, usp_logreg, usp_dectree, usp_rndforest, usp_NB, usp_SVM , usp_NN
 
 def index(request):
     dados = logistic_regression.load()
