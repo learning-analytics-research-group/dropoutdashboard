@@ -44,7 +44,7 @@ def usp(request):
     evadidos           = uspML.evasao()
     indice_evasao      = (evadidos / num_alunos)
     idade_media        = uspML.idade_media()
-    fig1               = uspML.evasao_failure1ano_pie(1)
+    fig1               = uspML.evasao_failure1ano_pieteste(1)
     fig2               = uspML.evasao_failure1ano_bar()
     fig3               = uspML.idade_histograma()
     accuracy_log       = usp_logreg.accuracy

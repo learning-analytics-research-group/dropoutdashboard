@@ -11,6 +11,8 @@ from sklearn import metrics
 from datetime import datetime, date
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 from django.http import HttpResponse
+import plotly.express as px
+from plotly.offline import plot
 
 from . import funcs
 
@@ -52,6 +54,22 @@ def evasao_failure1ano_pie(i):
    
 
     uri = funcs.gerar_imagem(fig)
+
+    return uri
+
+def evasao_failure1ano_pieteste(i):
+
+    fig = px.pie(values=list(dados_usp[dados_usp.failures_in_first_year == i+1]['evadido'].value_counts()),
+                 names=['sim', 'não'])
+
+    fig.update_layout(legend=dict(y=0.5))
+
+    fig.update_layout({'paper_bgcolor': 'rgba(0, 0, 0, 0)', 'plot_bgcolor': 'rgba(0, 0, 0, 0)', }, margin=dict(
+            l=20, r=20, t=20, b=20), legend=dict(orientation="v", yanchor="bottom", y=1.02, xanchor="right", x=1))
+
+    uri = plot(fig, output_type='div', config={
+            'displaylogo': False,
+            'modeBarButtonsToRemove': ['select', 'zoomIn', 'zoomOut', 'autoScale', 'resetScale', 'zoom', 'pan', 'toImage']})
 
     return uri
 
