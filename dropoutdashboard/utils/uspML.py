@@ -22,15 +22,6 @@ dados_usp = pd.read_csv('data/letras_usp_course_completion.csv', sep=',')
 df_final = pd.read_csv('data/teste.csv', sep=',')
 
 
-# def year_max_min():
-
-#     min_year = pd.to_datetime(dados_usp['dtaing']).dt.year.min()
-#     max_year = pd.to_datetime(dados_usp['dtaing']).dt.year.max()
-
-#     return (min_year, max_year)
-
-
-
 def num_alunos():
     #função que conta numero e alunos não unicos
 
@@ -76,9 +67,12 @@ def evasao_failure1ano_bar():
     df_final.rename({'sim' : 'Evadiram'}, inplace=True)
     df_final = df_final.T.sort_index(ascending=False)
 
-    fig = px.bar(df_final, orientation='h')
+    fig = px.bar(df_final, orientation='h', text_auto='.0%', labels = {
+                                                                         'index' : 'Número de reprovaçõs no primeiro ano',
+                                                                          })
 
     fig.update_layout(legend=dict(y=0.5))
+    fig.update_xaxes(visible=False)
 
     fig.update_layout({'paper_bgcolor': 'rgba(0, 0, 0, 0)', 'plot_bgcolor': 'rgba(0, 0, 0, 0)', }, margin=dict(
             l=20, r=20, t=20, b=20), legend=dict(orientation="v", yanchor="bottom", y=1.02, xanchor="right", x=1))
@@ -102,13 +96,6 @@ def idade_histograma():
     uri = plot(fig, output_type='div', config={
             'displaylogo': False,
             'modeBarButtonsToRemove': ['select', 'zoomIn', 'zoomOut', 'autoScale', 'resetScale', 'zoom', 'pan', 'toImage']})
-
-    
-    # fig = plt.figure(figsize=(9,5))   
-    # dados_usp['idade_no_ingresso'].hist(bins=30, grid=False)
-    # plt.title(f'Histograma idade dos alunos no ingresso')
-
-    # uri = funcs.gerar_imagem(fig)
 
     return uri
 

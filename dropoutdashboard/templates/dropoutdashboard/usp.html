@@ -4,21 +4,63 @@
 
 Curso de Letras <!--{{min_year}}-{{max_year}}-->
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      {{num_alunos}} alunos
-    </div>
-    <div class="col-sm">
-      {{evadidos}} alunos evadidos
-    </div>
-    <div class="col-sm">
-      Índice de evasão {{indice_evasao}} 
-    </div>
-    <div class="col-sm">
-      Idade de ingresso média: {{idade_media}}
+<div class="row">
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3>{{num_alunos}}</h3>
+
+        <p>Alunos</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-person-add"></i>
+      </div>
     </div>
   </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-success">
+      <div class="inner">
+        <h3>{{evadidos}}</h3>
+
+        <p>Alunos Evadidos</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-stats-bars"></i>
+      </div>
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-warning">
+      <div class="inner">
+        <h3>{{indice_evasao}}<sup style="font-size: 20px">%</sup></h3>
+
+        <p>Índice de evasão</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-person-add"></i>
+      </div>
+    </div>
+  </div>
+  <!-- ./col -->
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-danger">
+      <div class="inner">
+        <h3>{{idade_media}}</h3>
+
+        <p>Idade de ingresso média</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-pie-graph"></i>
+      </div>
+    </div>
+  </div>
+  <!-- ./col -->
 </div>
 
 {{accuracy_log}} <br>

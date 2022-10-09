@@ -39,12 +39,11 @@ def nitra(request):
                                                                             })
 
 def usp(request):
-    #min_year, max_year = uspML.year_max_min()
     num_alunos         = uspML.num_alunos() 
-    evadidos           = uspML.evasao()
-    indice_evasao      = (evadidos / num_alunos)
+    evadidos           = uspML.evasao() 
+    indice_evasao      = (evadidos / num_alunos) * 100
     idade_media        = uspML.idade_media()
-    fig1               = uspML.evasao_failure1ano_pieteste(1)
+    fig1               = uspML.evasao_failure1ano_pie(1)
     fig2               = uspML.evasao_failure1ano_bar()
     fig3               = uspML.idade_histograma()
     accuracy_log       = usp_logreg.accuracy
@@ -54,11 +53,10 @@ def usp(request):
     accuracy_SVM       = usp_SVM.accuracy
     accuracy_NN        = usp_NN.accuracy
 
-    return render(request, 'dropoutdashboard/usp.html', {# 'min_year'     : min_year,
-                                                        #'max_year'      : max_year,
+    return render(request, 'dropoutdashboard/usp.html', {
                                                         'num_alunos'    : f'{num_alunos:,}'.format(),
                                                         'evadidos'      : f'{evadidos:,}'.format(),
-                                                        'indice_evasao' : f'{(indice_evasao):.2%}'.format(),
+                                                        'indice_evasao' : f'{(indice_evasao):.2f}'.format(),
                                                         'idade_media'   : f'{idade_media:.2f}'.format(),
                                                         'fig1'          : fig1,
                                                         'fig2'          : fig2,
