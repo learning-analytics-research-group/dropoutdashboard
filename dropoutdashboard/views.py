@@ -47,26 +47,50 @@ def usp(request):
     fig2               = uspML.evasao_failure1ano_bar()
     fig3               = uspML.idade_histograma()
     accuracy_log       = usp_logreg.accuracy
-    accuracy_dectree   = usp_dectree.accuracy
+    accuracy_dectree   = usp_dectree.accuracy 
     accuracy_rndforest = usp_rndforest.accuracy
     accuracy_NB        = usp_NB.accuracy
     accuracy_SVM       = usp_SVM.accuracy
     accuracy_NN        = usp_NN.accuracy
+    errors_log       = usp_logreg.errors
+    errors_dectree   = usp_dectree.errors 
+    errors_rndforest = usp_rndforest.errors
+    errors_NB        = usp_NB.errors
+    errors_SVM       = usp_SVM.errors
+    errors_NN        = usp_NN.errors
+    mape_log       = usp_logreg.mape
+    mape_dectree   = usp_dectree.mape 
+    mape_rndforest = usp_rndforest.mape
+    mape_NB        = usp_NB.mape
+    mape_SVM       = usp_SVM.mape
+    mape_NN        = usp_NN.mape
 
     return render(request, 'dropoutdashboard/usp.html', {
-                                                        'num_alunos'    : f'{num_alunos:,}'.format(),
-                                                        'evadidos'      : f'{evadidos:,}'.format(),
-                                                        'indice_evasao' : f'{(indice_evasao):.2f}'.format(),
-                                                        'idade_media'   : f'{idade_media:.2f}'.format(),
-                                                        'fig1'          : fig1,
-                                                        'fig2'          : fig2,
-                                                        'fig3'          : fig3,
-                                                        'accuracy_log'  : 'Accuracy Logistic Regression= {:0.2f}%.'.format(accuracy_log),
-                                                        'accuracy_dectree'  : 'Accuracy Decision Tree = {:0.2f}%.'.format(accuracy_dectree),
-                                                        'accuracy_rndforest'  : 'Accuracy Random Forest = {:0.2f}%.'.format(accuracy_rndforest),
-                                                        'accuracy_NB'  : 'Accuracy Naive Bayes= {:0.2f}%.'.format(accuracy_NB),
-                                                        'accuracy_SVM'  : 'Accuracy Support Vector Machine= {:0.2f}%.'.format(accuracy_SVM),
-                                                        'accuracy_NN'  : 'Accuracy Neural Network = {:0.2f}%.'.format(accuracy_NN),
+                                                        'num_alunos'          : f'{num_alunos:,}'.format(),
+                                                        'evadidos'            : f'{evadidos:,}'.format(),
+                                                        'indice_evasao'       : f'{(indice_evasao):.2f}'.format(),
+                                                        'idade_media'         : f'{idade_media:.2f}'.format(),
+                                                        'fig1'                : fig1,
+                                                        'fig2'                : fig2,
+                                                        'fig3'                : fig3,
+                                                        'accuracy_log'        : accuracy_log,
+                                                        'accuracy_dectree'    : accuracy_dectree,
+                                                        'accuracy_rndforest'  : accuracy_rndforest,
+                                                        'accuracy_NB'         : accuracy_NB,
+                                                        'accuracy_SVM'        : accuracy_SVM,
+                                                        'accuracy_NN'         : accuracy_NN,#'Accuracy Neural Network = {:0.2f}%.'.format(accuracy_NN),
+                                                        'errors_log'          : errors_log,
+                                                        'errors_dectree'      : errors_dectree, 
+                                                        'errors_rndforest'    : errors_rndforest,
+                                                        'errors_NB'           : errors_NB,
+                                                        'errors_SVM'          : errors_SVM,
+                                                        'errors_NN'           : errors_NN,
+                                                        'mape_log'            : mape_log,
+                                                        'mape_dectree'        : mape_dectree,
+                                                        'mape_rndforest'      : mape_rndforest,
+                                                        'mape_NB'             : mape_NB,
+                                                        'mape_SVM'            : mape_SVM,
+                                                        'mape_NN'             : mape_NN,
 
                                                         
                                                         })
