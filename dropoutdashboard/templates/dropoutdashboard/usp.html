@@ -2,130 +2,140 @@
 
 {%block content %}
 
-<h3>Curso de Letras</h3>
 
-<div class="row">
-  <div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-info">
-      <div class="inner">
-        <h3>{{num_alunos}}</h3>
-
-        <p>Alunos</p>
+<div class="container">
+  <h3><strong>Curso de Letras</strong></h3>
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+          <div class="inner">
+            <h3>{{num_alunos}}</h3>
+    
+            <p>Alunos</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+        </div>
       </div>
-      <div class="icon">
-        <i class="ion ion-person-add"></i>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+          <div class="inner">
+            <h3>{{evadidos}}</h3>
+    
+            <p>Alunos Evadidos</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+          </div>
+        </div>
       </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-warning">
+          <div class="inner">
+            <h3>{{indice_evasao}}<sup style="font-size: 20px">%</sup></h3>
+    
+            <p>Índice de evasão</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+          <div class="inner">
+            <h3>{{idade_media}}</h3>
+    
+            <p>Idade de ingresso média</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-pie-graph"></i>
+          </div>
+        </div>
+      </div>
+      <!-- ./col -->
     </div>
   </div>
-  <!-- ./col -->
-  <div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-success">
-      <div class="inner">
-        <h3>{{evadidos}}</h3>
-
-        <p>Alunos Evadidos</p>
-      </div>
-      <div class="icon">
-        <i class="ion ion-stats-bars"></i>
-      </div>
-    </div>
-  </div>
-  <!-- ./col -->
-  <div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-warning">
-      <div class="inner">
-        <h3>{{indice_evasao}}<sup style="font-size: 20px">%</sup></h3>
-
-        <p>Índice de evasão</p>
-      </div>
-      <div class="icon">
-        <i class="ion ion-person-add"></i>
-      </div>
-    </div>
-  </div>
-  <!-- ./col -->
-  <div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-danger">
-      <div class="inner">
-        <h3>{{idade_media}}</h3>
-
-        <p>Idade de ingresso média</p>
-      </div>
-      <div class="icon">
-        <i class="ion ion-pie-graph"></i>
-      </div>
-    </div>
-  </div>
-  <!-- ./col -->
 </div>
 
-<h3>Desempenho dos modelos</h3>
 
-<div class="card-body">
-  <table id="example2" class="table table-bordered table-hover">
-    <thead>
-    <tr>
-      <th>Modelo</th>
-      <th>Acurácia</th>
-      <th>Error</th>
-      <th>MAPE</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>Logistic Regression</td>
-      <td>{{accuracy_log}}</td>
-      <td>{{errors_log}}</td>
-      <td>{{mape_log}}</td>
-    </tr>
-    <tr>
-      <td>Decision Tree</td>
-      <td>{{accuracy_dectree}}</td>
-      <td>{{errors_dectree}}</td>
-      <td>{{mape_dectree}}</td>
-    </tr>
-    <tr>
-      <td>Random Forest</td>
-      <td>{{accuracy_rndforest}}</td>
-      <td>{{errors_rndforest}}</td>
-      <td>{{mape_rndforest}}</td>
-    </tr>
-    <tr>
-      <td>Naive Bayes</td>
-      <td>{{accuracy_NB}}</td>
-      <td>{{errors_NB}}</td>
-      <td>{{mape_NB}}</td>
-    </tr>
-    <tr>
-      <td>Support Vector Machine</td>
-      <td>{{accuracy_SVM}}</td>
-      <td>{{errors_SVM}}</td>
-      <td>{{mape_SVM}}</td>
-    </tr>
-    <tr>
-      <td>Neural Network</td>
-      <td>{{accuracy_NN}}</td>
-      <td>{{errors_NN}}</td>
-      <td>{{mape_NN}}</td>
-    </tr>
-  </table>
+<div class="container">
+  <h3><strong>Desempenho dos modelos</strong></h3>
+  <div class="card-body">
+    <table id="example2" class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Modelo</th>
+        <th>Acurácia</th>
+        <th>Error</th>
+        <th>MAPE</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Logistic Regression</td>
+        <td>{{accuracy_log}}</td>
+        <td>{{errors_log}}</td>
+        <td>{{mape_log}}</td>
+      </tr>
+      <tr>
+        <td>Decision Tree</td>
+        <td>{{accuracy_dectree}}</td>
+        <td>{{errors_dectree}}</td>
+        <td>{{mape_dectree}}</td>
+      </tr>
+      <tr>
+        <td>Random Forest</td>
+        <td>{{accuracy_rndforest}}</td>
+        <td>{{errors_rndforest}}</td>
+        <td>{{mape_rndforest}}</td>
+      </tr>
+      <tr>
+        <td>Naive Bayes</td>
+        <td>{{accuracy_NB}}</td>
+        <td>{{errors_NB}}</td>
+        <td>{{mape_NB}}</td>
+      </tr>
+      <tr>
+        <td>Support Vector Machine</td>
+        <td>{{accuracy_SVM}}</td>
+        <td>{{errors_SVM}}</td>
+        <td>{{mape_SVM}}</td>
+      </tr>
+      <tr>
+        <td>Neural Network</td>
+        <td>{{accuracy_NN}}</td>
+        <td>{{errors_NN}}</td>
+        <td>{{mape_NN}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
 
-<h3>Gráficos de contexto</h3>
+
 
 <!-- /.card-body -->
-</div>
+
 <!-- /.card -->
-<div class="container">
+<div class="container grafico-contexto">
+  <div class="col-sm-12">
+    <h3><strong>Gráficos de contexto</strong></h3>
+  </div>
+  
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm-6">
       {% include 'dropoutdashboard/includes/grafico_evasaofailure.html' %}
     </div>
-    <div class="col-sm">
+    <div class="col-sm-6">
       {% include 'dropoutdashboard/includes/grafico_histogramaidade.html' %}
       
     </div>
